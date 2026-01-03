@@ -1,11 +1,11 @@
 const button = document.querySelector("button");
 const textarea = document.querySelector("textarea");
+let isSpeaking = true;
 
 const textToSpeech = () => {
     const synth = window.speechSynthesis;
     const text = textarea.value;
-    const isSpeaking = true;
-
+    
     if(!synth.speaking && text) {
         const utterance = new SpeechSynthesisUtterance(text);
         synth.speak(utterance);
@@ -31,7 +31,7 @@ const textToSpeech = () => {
             isSpeaking = true;
             button.innerText = "Convert To Speech";
         }
-    })
+    });
 };
 
 button.addEventListener("click", textToSpeech);
